@@ -42,16 +42,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
+    'rest_framework_simplejwt',
     'userAuthentications',
+    'profileManagment',
+    'UserManagment',
     
-    
-]
+    ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -74,6 +77,8 @@ AUTH_USER_MODEL = "userAuthentications.CustomUser"
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  
 ]
+
+CORS_ORIGIN_ALLOW_ALL=True
 
 ROOT_URLCONF = 'zypher.urls'
 
@@ -152,7 +157,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ACCOUNT_SID=config('ACCOUNT_SID')
 AUTH_TOKEN=config('AUTH_TOKEN')
-TWILIO_WHATSAPP_NUMBER=config('TWILIO_WHATSAPP_NUMBER')       
+TWILIO_WHATSAPP_NUMBER=config('TWILIO_WHATSAPP_NUMBER')
 TWILIO_PHONE_NUMBER=config('TWILIO_PHONE_NUMBER')
 COUNTRY_CODE=config('COUNTRY_CODE')
 
